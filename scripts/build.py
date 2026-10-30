@@ -311,27 +311,38 @@ def hero():
 # --- Cifras -------------------------------------------------------------------
 
 METRICS = [
-    ("9+", "años con software", "en producción"),
-    ("4", "países con proyectos", "entregados"),
-    ("28", "empresas convertidas", "desde WhatsApp"),
-    ("250+", "clases de test en el", "sistema de Delicius"),
+    # (signo, moneda, cifra, unidad, texto): la moneda y la unidad van más pequeñas, como en la web.
+    ("", "", "9+", "", "años con software en producción"),
+    ("+", "US$", "1,5", "M", "vendidos en el primer año a través del sistema que diseñé"),
+    ("+", "US$", "30", "mil", "al mes en ventas de empresas que llegaron por WhatsApp y la web"),
+    ("", "", "250+", "", "clases de test en el sistema de Delicius"),
 ]
 
 
 def metricas():
-    W, H = 1200, 200
+    W = 1200
     cell = W / len(METRICS)
+    big, small, gap = 72, 40, 8
+    labels = [wrap(M600, label, 18, 220) for *_, label in METRICS]
+    H = 140 + 24 * (max(map(len, labels)) - 1) + 44
     body = [backdrop(W, H, glow=("50%", "-40%"), radius=24)]
-    for i, (value, first, second) in enumerate(METRICS):
+    for i, ((sign, currency, value, unit, _), lines) in enumerate(zip(METRICS, labels)):
         cx = cell * i + cell / 2
         if i:
-            body.append(f'<line x1="{num(cell * i)}" y1="44" x2="{num(cell * i)}" y2="156" stroke="{LINE}" stroke-width="2"/>')
-        big, _ = text(ANTON, value, cx, 104, 72, LEMON, anchor="middle")
-        l1, _ = text(M600, first, cx, 140, 18, SOFT, anchor="middle")
-        l2, _ = text(M600, second, cx, 164, 18, SOFT, anchor="middle")
-        body += [big, l1, l2]
-    title = ("9+ años con software en producción · 4 países con proyectos entregados · "
-             "28 empresas convertidas desde WhatsApp · 250+ clases de test en el sistema de Delicius")
+            body.append(f'<line x1="{num(cell * i)}" y1="44" x2="{num(cell * i)}" y2="{H - 44}" stroke="{LINE}" stroke-width="2"/>')
+        pieces = [(sign, big, 0), (currency, small, 0), (value, big, 0), (unit, small, gap)]
+        pieces = [(t, size, before) for t, size, before in pieces if t]
+        total = sum(ANTON.width(t, size) + before for t, size, before in pieces)
+        x = cx - total / 2
+        for t, size, before in pieces:
+            x += before
+            path, width = text(ANTON, t, x, 104, size, LEMON)
+            body.append(path)
+            x += width
+        for n, line in enumerate(lines):
+            body.append(text(M600, line, cx, 140 + 24 * n, 18, SOFT, anchor="middle")[0])
+    title = " · ".join(f"{sign}{currency}{value}{' ' + unit if unit else ''} {label}"
+                       for sign, currency, value, unit, label in METRICS)
     return document("metricas.svg", W, H, title, body)
 
 

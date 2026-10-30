@@ -12,7 +12,7 @@
   Antes de escribir código dibujo la arquitectura por capas, y la sostengo con pruebas automáticas.
 </p>
 
-<img src="assets/metricas.svg" width="100%" alt="9+ años con software en producción · 4 países con proyectos entregados: Chile, Colombia, Estados Unidos y Francia · 28 empresas convertidas desde WhatsApp · 250+ clases de test en el sistema de Delicius">
+<img src="assets/metricas.svg" width="100%" alt="9+ años con software en producción · +US$1,5 M vendidos en el primer año a través del sistema que diseñé · +US$30 mil al mes en ventas de empresas que llegaron por WhatsApp y la web · 250+ clases de test en el sistema de Delicius">
 
 ## <code>01</code> Lo que construí para Delicius Food · Chile
 
@@ -22,11 +22,11 @@ Diseñé desde cero, y sigo desarrollando, los tres sistemas que operan la empre
 
 | Sistema | Qué hace |
 |:--|:--|
-| **Backoffice y CRM** | El centro de todo: pedidos, producción, inventario, facturación y las conversaciones de WhatsApp. Desde aquí se administran las dos tiendas. Una IA califica cada contacto, lo etiqueta según su origen (Google Ads, Meta o la web) y avisa al asesor.<br>`Laravel 12` `Filament` `DDD` `DeepSeek` `AWS` |
+| **Backoffice y CRM** | El centro de todo: pedidos, producción, inventario, facturación y las conversaciones de WhatsApp. Desde aquí se administran las dos tiendas. Una IA califica cada contacto, lo etiqueta según su origen (Google Ads, Meta o la web) y avisa al asesor.<br>`Laravel 12` `Filament` `DDD` `DeepSeek` `MiniMax` `Claude (Anthropic)` `AWS` |
 | **Tienda B2B**<br>[pedidosdelicius.cl](https://pedidosdelicius.cl) | Las empresas con convenio eligen el día de entrega, ven el menú con sus precios y piden antes de la hora límite.<br>`React` `TypeScript` `Tailwind` `API en Laravel` |
 | **Tienda B2C y web**<br>[deliciusfoodchile.cl](https://www.deliciusfoodchile.cl) | Boxes de comida a domicilio con pago por Klap, ingreso con Google y cada venta medida con GA4 y el Pixel de Meta.<br>`Astro` `React` `Klap` `GA4` `AWS` |
 
-**3.300+** conversaciones de WhatsApp · facturación automática en **Defontana** · pagos con **Klap** · **+194 %** de clics orgánicos en dos semanas.
+**+20.000** pedidos procesados · **1 de cada 4 pesos** vendidos en octubre vino de empresas captadas por WhatsApp y la web · facturación automática en **Defontana** · pagos con **Klap** · **+194 %** de clics orgánicos en dos semanas.
 
 ## <code>02</code> Proyectos propios
 
