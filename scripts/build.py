@@ -119,11 +119,11 @@ class Font:
         return "".join(parts)
 
 
-ANTON = Font("anton-latin.woff")
-M500 = Font("montserrat-latin.woff", 500)
-M600 = Font("montserrat-latin.woff", 600)
-M700 = Font("montserrat-latin.woff", 700)
-M800 = Font("montserrat-latin.woff", 800)
+ANTON = Font("anton-latin.woff2")
+M500 = Font("montserrat-latin.woff2", 500)
+M600 = Font("montserrat-latin.woff2", 600)
+M700 = Font("montserrat-latin.woff2", 700)
+M800 = Font("montserrat-latin.woff2", 800)
 
 
 def text(font, value, x, y, size, fill, track=0, anchor="start", attrs=""):
@@ -550,7 +550,7 @@ def rgb(color, alpha=255):
 
 
 def montserrat(size, weight):
-    font = ImageFont.truetype(str(PUBLIC / "fonts" / "montserrat-latin.woff"), size)
+    font = ImageFont.truetype(str(PUBLIC / "fonts" / "montserrat-latin.woff2"), size)
     font.set_variation_by_axes([weight])
     return font
 
